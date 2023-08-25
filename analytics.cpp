@@ -14,7 +14,6 @@
 int displayMenu()
 {
     int menu;
-    do{
         
         cout<< "2015 National Survey of Recent College Graduate\n";
         cout<< "1. Top 10 Majors with the Highest Mean Salary\n";
@@ -30,15 +29,34 @@ int displayMenu()
         cout<< "11. Display Information for a Specific Major\n";
         cout<< "12. Exit\n\n";
         cout<< "Select a Menu: _\n";
-
-        cin >> menu;
-        if(menu<1 || menu>12)
+        do{
+            cin >> menu;
+             
+        }while(menu<1 || menu>12);
+        //Exit Menu if user selects 12
+        if(menu==12)
         {
-        cout<< "Invalid menu, please try again\n\n\n";
+            cout<< "Exiting menu now...\n";
+            exit(1);
         }
-    }while(menu<1 || menu>12);
     return menu;
 
-
-
+}
+void displayVector(vector<GradEmploymentData> &grad)
+{
+    cout<< "Demographics Total  Education Major  Mean Salary  Median Salary  Asain Dem.  ";
+    cout<< "Minority Dem.  White Dem. Female  Male  Bachelors  Doctorate  Masters\n";
+    for(int i=0; i<grad.size(); i++)
+    {
+        cout<< grad[i].demographicsTotal<<" "<<grad[i].educationMajor<<" "<<grad[i].meanSalary<<" ";
+        cout<< grad[i].medianSalary<<" "<<grad[i].demographicsAsian<<" "<<grad[i].demographicsMinority<<" ";
+        cout<< grad[i].demographicsWhite<<" "<<grad[i].demographicsFemales<<" ";
+        cout<< grad[i].demographicsMales<<" ";
+        cout<< grad[i].educationBachelor<<" "<<grad[i].educationDoctorate<<" "<<grad[i].educationMasters;
+        cout<< endl;
+    }
+}
+void menu1(int menu)
+{
+    
 }
