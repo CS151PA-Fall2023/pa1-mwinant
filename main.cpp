@@ -14,13 +14,12 @@
 #include <vector>
 #include <fstream>
 #include <string>
+#include <iomanip>
 #include "analytics.h"
 using namespace std;
 
 int main()
 {
-    //displayMenu();
-
     //opening file
     ifstream gradFile;
     gradFile.open("graduates2015.csv");
@@ -35,43 +34,41 @@ int main()
     vector<GradEmploymentData> grad;
 
     //reading file
-    while(gradFile.peek()!=EOF)
-    {  
-        GradEmploymentData line;
-            //reading demographics total and comma
-            char delim;
-            gradFile >>line.demographicsTotal>>delim;
+    readFile(grad, gradFile);
 
-            //reading education major and comma
-            getline(gradFile, line.educationMajor, ',');
-            //reading mean salary and comma
-            gradFile>> line.meanSalary>>delim;
-            //reading median salary and comma
-            gradFile>>line.medianSalary>>delim;
-            //reading Asian Demographic total and comma
-            gradFile>>line.demographicsAsian>>delim;
-            //reading minority demographic total and comma
-            gradFile>>line.demographicsMinority>>delim;
-            //reading white demographic total and comma
-            gradFile>>line.demographicsWhite>>delim;
-            //reading female total and comma
-            gradFile>>line.demographicsFemales>>delim;
-            //reading male total and comma
-            gradFile>>line.demographicsMales>>delim;
-            //reading bachelor degree total and comma
-            gradFile>>line.educationBachelor>>delim;
-            //reading doctorate degree total and comma
-            gradFile>>line.educationDoctorate>>delim;
-            //reading masters degree total and comma
-            gradFile>>line.educationMasters;
+    //display main menu
+    displayMenu();
 
-            grad.push_back(line);
+    //display vector (testing)
+    //displayVector(grad);
 
+    int choice=displayMenu();
+    if(choice==1)
+    {
+        sortMenu1(grad, 46);
     }
 
-    //display vector
-    displayVector(grad);
+    if(choice==2)
+    {
+        sortMenu2(grad, 46);
+    }
 
+    if(choice==3)
+    cout<< "test2\n";
+
+    /**switch(choice){
+        case 1:
+            menu1(grad);
+            break;
+        case 2:
+            cout<< "test\n";
+            break;
+        case 3:
+            cout<< "test2\n";
+            break;
+        //add case 2-12
+    }
+    **/
 
     return 0;
 }

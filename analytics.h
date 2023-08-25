@@ -12,6 +12,7 @@
 #include <fstream>
 #include <vector>
 #include <string>
+#include <iomanip>
 using namespace std;
 
 
@@ -38,7 +39,9 @@ struct GradEmploymentData
 //Function Headers
 int displayMenu();
 void displayVector(vector<GradEmploymentData> &grad);
-void menu1(int menu);
+void readFile(vector<GradEmploymentData> &grad, ifstream &gradFile);
+void sortMenu1(vector<GradEmploymentData> &grad, int size);
+void sortMenu2(vector<GradEmploymentData> &grad, int size);
 
 
 
