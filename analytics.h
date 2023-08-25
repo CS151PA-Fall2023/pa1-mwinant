@@ -37,11 +37,21 @@ struct GradEmploymentData
 };
 
 //Function Headers
-int displayMenu();
+void displayMenu();
 void displayVector(vector<GradEmploymentData> &grad);
 void readFile(vector<GradEmploymentData> &grad, ifstream &gradFile);
+void choice(vector<GradEmploymentData> &grad);
 void sortMenu1(vector<GradEmploymentData> &grad, int size);
 void sortMenu2(vector<GradEmploymentData> &grad, int size);
+void sortMenu3(vector<GradEmploymentData> &grad, int size);
+void sortMenu4(vector<GradEmploymentData> &grad, int size);
+void sortMenu5(vector<GradEmploymentData> &grad, int size);
+void sortMenu6(vector<GradEmploymentData> &grad, int size);
+void sortMenu7(vector<GradEmploymentData> &grad, int size);
+void sortMenu8(vector<GradEmploymentData> &grad, int size);
+void sortMenu9(vector<GradEmploymentData> &grad, int size);
+void sortMenu10(vector<GradEmploymentData> &grad, int size);
+void sortMenu11(vector<GradEmploymentData> &grad, int size);
 
 
 

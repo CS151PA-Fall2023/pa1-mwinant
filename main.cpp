@@ -35,40 +35,12 @@ int main()
 
     //reading file
     readFile(grad, gradFile);
-
+    //display vector test
+    //displayVector(grad);
     //display main menu
     displayMenu();
+    choice(grad);
 
-    //display vector (testing)
-    //displayVector(grad);
-
-    int choice=displayMenu();
-    if(choice==1)
-    {
-        sortMenu1(grad, 46);
-    }
-
-    if(choice==2)
-    {
-        sortMenu2(grad, 46);
-    }
-
-    if(choice==3)
-    cout<< "test2\n";
-
-    /**switch(choice){
-        case 1:
-            menu1(grad);
-            break;
-        case 2:
-            cout<< "test\n";
-            break;
-        case 3:
-            cout<< "test2\n";
-            break;
-        //add case 2-12
-    }
-    **/
 
     return 0;
 }
