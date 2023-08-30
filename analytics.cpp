@@ -71,7 +71,19 @@ void readFile(vector<GradEmploymentData> &grad, ifstream &gradFile)
             gradFile >>line.demographicsTotal>>delim;
 
             //reading education major and comma
-            getline(gradFile, line.educationMajor, ',');
+            //need to make it so if it reads " , read until next "
+            if(gradFile.peek()=='"')
+            {
+                gradFile.get();
+                getline(gradFile, line.educationMajor, '"');
+                gradFile>>delim;
+
+            }
+            else
+            {
+                getline(gradFile, line.educationMajor, ',');
+
+            }
             //reading mean salary and comma
             gradFile>> line.meanSalary>>delim;
             //reading median salary and comma
@@ -107,49 +119,49 @@ void choice(vector<GradEmploymentData> &grad)
         int choice=0;
     do
     {
+        displayMenu();
         cin >> choice;
-        //Exit Menu if user selects 12
-        if(choice==12)
-        {
-            cout<< "Exiting menu now...\n";
-            exit(1);
+        switch(choice){
+            case 1:
+                sortMenu1(grad, 46);
+                break;
+            case 2:
+                sortMenu2(grad, 46);
+                break;
+            case 3:
+                sortMenu3(grad, 46);
+                break;
+            case 4:
+                sortMenu4(grad, 46);
+                break;
+            case 5:
+                sortMenu5(grad, 46);
+                break;
+            case 6:
+                sortMenu6(grad, 46);
+                break;
+            case 7:
+                sortMenu7(grad, 46);
+                break;
+            case 8:
+                sortMenu8(grad, 46);
+                break;
+            case 9:
+                sortMenu9(grad, 46);
+                break;
+            case 10:
+                sortMenu10(grad, 46);
+                break;
+            case 11:
+                sortMenu11(grad, 46);
+                break;
+            case 12:
+                cout<< "Exiting menu now...\n";
+                break;
         }
 
-        if(choice==1)
-            sortMenu1(grad, 46);
 
-        if(choice==2)
-            sortMenu2(grad, 46);
-
-        if(choice==3)
-            sortMenu3(grad, 46);
-
-        if(choice==4)
-            sortMenu4(grad, 46);
-
-        if(choice==5)
-            sortMenu5(grad, 46);
-
-        if(choice==6)
-            sortMenu6(grad, 46);
-
-        if(choice==7)
-            sortMenu7(grad, 46);
-
-        if(choice==8)
-            sortMenu8(grad, 46);
-
-        if(choice==9)
-            sortMenu9(grad, 46);
-
-        if(choice==10)
-            sortMenu10(grad, 46);
-
-        if(choice==11)
-            sortMenu11(grad, 46);
-
-        displayMenu();
-    }while(choice>=0&&choice<=12);
+    }while(choice!=12);
 
 }
 /**
@@ -459,7 +471,7 @@ void sortMenu9(vector<GradEmploymentData> &grad, int size)
         madeSwap=false;
         for(int count=0; count< lastIndex; ++count)
         {
-            if(grad[count].educationMasters> grad[count+1].educationMasters) //change sign here for descending order
+            if(grad[count].educationMasters< grad[count+1].educationMasters) //change sign here for descending order
             {
                 GradEmploymentData temp= grad[count];
                 grad[count]=grad[count+1];
@@ -496,7 +508,7 @@ void sortMenu10(vector<GradEmploymentData> &grad, int size)
         madeSwap=false;
         for(int count=0; count< lastIndex; ++count)
         {
-            if(grad[count].educationBachelor> grad[count+1].educationBachelor) //change sign here for descending order
+            if(grad[count].educationBachelor<grad[count+1].educationBachelor) //change sign here for descending order
             {
                 GradEmploymentData temp= grad[count];
                 grad[count]=grad[count+1];
@@ -526,7 +538,7 @@ void sortMenu10(vector<GradEmploymentData> &grad, int size)
 void sortMenu11(vector<GradEmploymentData> &grad, int size)
 {
     cout << "Number of Female Students in Anthropology and Archeology Major\n\n";
-    cout << "Anthropology/Archaelogy Major                    "<<"Female Student Total\n";
+    cout << "Major                              "<<"Female Student Total\n";
     cout << "__________________________________________________________\n";
 
     cout<<grad[2].educationMajor<<right<<setw(55-grad[2].educationMajor.length());

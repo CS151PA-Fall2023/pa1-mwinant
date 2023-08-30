@@ -37,9 +37,11 @@ int main()
     readFile(grad, gradFile);
     //display vector test
     //displayVector(grad);
-    //display main menu
-    displayMenu();
+
     choice(grad);
+
+    //close file
+    gradFile.close();
 
 
     return 0;
